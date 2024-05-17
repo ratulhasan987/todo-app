@@ -1,13 +1,13 @@
-
+// components/TaskPage.js
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import TaskForm from '@/components/TaskForm';
-import TaskList from '@/components/TaskList';
-import { setTasks } from '@/store/taskSlice';
+import TaskForm from './TaskForm';
+import TaskList from './TaskList';
+import { setTasks } from '../store/taskSlice';
 
-
-export default function Home() {
+const TaskPage = () => {
   const [showForm, setShowForm] = useState(false);
   const tasks = useSelector((state) => state.tasks.tasks);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      {/* <h1 className="text-2xl font-bold mb-4">Todo App</h1> */}
+      <h1 className="text-2xl font-bold mb-4">Todo App</h1>
       <button
         onClick={() => setShowForm(true)}
         className="bg-blue-500 text-white px-4 py-2 rounded-md"
@@ -38,9 +38,6 @@ export default function Home() {
       <TaskList />
     </div>
   );
-}
+};
 
-
-
-
-
+export default TaskPage;
